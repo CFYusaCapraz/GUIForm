@@ -74,6 +74,7 @@
           <focusTraversalPolicyProvider value="false"/>
           <focusable value="true"/>
           <font name="Fira Code" size="24" style="0"/>
+          <selected value="false"/>
           <text value="Male"/>
         </properties>
       </component>
