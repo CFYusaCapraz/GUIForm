@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame implements ActionListener {
     private JPanel mainPanel;
     private JLabel headerLabel;
     private JLabel nameLabel;
@@ -13,6 +15,12 @@ public class GUI extends JFrame {
     private JRadioButton radioButtonFemale;
     private JLabel birthdateLabel;
     private JComboBox comboBoxDate;
+    private JLabel hobbiesLabel;
+    private JCheckBox checkBoxFootball;
+    private JCheckBox checkBoxMovies;
+    private JCheckBox checkBoxNetflix;
+    private JCheckBox checkBoxCoding;
+    private JButton buttonSubmit;
 
     public GUI(String title) throws HeadlessException {
         super(title);
@@ -20,19 +28,6 @@ public class GUI extends JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.add(mainPanel);
-
-        Font font = new Font("Fira Coda", Font.PLAIN, 18);
-        mainPanel.setFont(font);
-        headerLabel.setFont(font);
-        nameLabel.setLabelFor(textFieldName);
-        nameLabel.setFont(font);
-        surnameLabel.setLabelFor(textFieldSurname);
-        surnameLabel.setFont(font);
-        genderLabel.setLabelFor(radioButtonMale);
-        genderLabel.setFont(font);
-        birthdateLabel.setLabelFor(comboBoxDate);
-        birthdateLabel.setFont(font);
-        comboBoxDate.setFont(font);
 
         //Adding birthdate from 1800 to 2022 to combo box
         for (int i = 1800; i < 2022; i++) {
@@ -44,6 +39,13 @@ public class GUI extends JFrame {
         group.add(radioButtonFemale);
         group.add(radioButtonMale);
 
+        buttonSubmit.addActionListener(this);
         this.pack();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == buttonSubmit)
+            JOptionPane.showMessageDialog(this,"hello");
     }
 }
